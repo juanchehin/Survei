@@ -1,0 +1,133 @@
+<!--Navbar-->
+<mdb-navbar #nav SideClass="navbar navbar-expand-lg navbar-light white">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand>
+      <a class="navbar-brand" routerLink="/AAC/Incidencia/Bienvenido">AACD</a>
+    </mdb-navbar-brand>
+    
+    <links>
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto" *ngIf="autorization ==='ADMIN'">
+        <!-- Dropdown -->
+        <li class="nav-item dropdown mega-dropdown" mdbDropdown>
+          <a mdbDropdownToggle class="nav-link dropdown-toggle">MENU</a>
+          <div class="dropdown-menu mega-menu row z-depth-1">
+            <div class="row">
+              <div class="col-md-5 col-xl-3 sub-menu mt-5 mb-5 pl-4">
+                <!-- <ul class="list-unstyled mx-4 pl-0 dark-grey-text"> -->
+                <ul class="list-unstyled mx-4 pl-0 dark-grey-text">
+                  <li class="sub-title text-uppercase mt-sm"  routerLink="/AAC/Incidencia/lista-incidencia">
+                    <a class="menu-item">INCIDENCIAS</a>
+                  </li>
+                  <li class="sub-title text-uppercase">
+                    <a class="menu-item">REPORTES</a>
+                  </li>
+                  <li class="sub-title text-uppercase">
+                    <a class="menu-item">CAMARAS</a>
+                  </li>
+                  <li class="sub-title text-uppercase" routerLink="/AAC/Persona/Usuario">
+                    <a class="menu-item">PERSONA</a>
+                  </li>
+                  <li class="sub-title text-uppercase" routerLink="/AAC/Datos/Estadistica">
+                    <a class="menu-item">ESTADISTICA</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-7 col-xl-9">
+                <div class="row">
+                  <div class="col-xl-6 mt-5 mb-4 pr-5 clearfix d-none d-block">
+                    <h6 class="sub-title p-sm mb-4 text-uppercase font-weight-bold dark-grey-text">REUNIÓN</h6>
+                    <!--Featured image-->
+                    <div class="view overlay pb-3">
+                      <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(42).jpg" class="img-fluid z-depth-1" alt="First sample image">
+                      <div class="mask rgba-white-slight flex-center">
+                        <p></p>
+                      </div>
+                    </div>
+                    <h4 class="mb-2">
+                      <a class="news-title" href="">EQUIPO DE SEGURIDAD DE ANDRÉS AVELINO CÁCERES DORREGARAY</a>
+                    </h4>
+                    <p class="font-small text-uppercase text-muted">By
+                      <a class="m-sm" href="#!">FELIX ASTO</a> - 01 DE JUNIO DE 2020</p>
+                  </div>
+                  <div class="col-xl-6 mt-5 mb-4 pr-5 clearfix d-none d-xl-block">
+                    <h6 class="sub-title p-sm mb-4 text-uppercase font-weight-bold dark-grey-text">RECIENTES</h6>
+                    <div class="news-single">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <!--Image-->
+                          <div class="view overlay z-depth-1">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(43).jpg" class="img-fluid" alt="Minor sample post image">
+                            <div class="mask rgba-white-slight flex-center">
+                              <p></p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <a class="news-title smaller mb-1" href="">REPORTE POR CELULARES</a>
+                          <p class="font-small text-uppercase text-muted">25 DE MAYO 2020</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="news-single">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <!--Image-->
+                          <div class="view overlay z-depth-1">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(44).jpg" class="img-fluid" alt="Minor sample post image">
+                            <div class="mask rgba-white-slight flex-center">
+                              <p></p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <a class="news-title smaller mb-1" href="">VIGILANCIA DESDE CASA.</a>
+                          <p class="font-small text-uppercase text-muted">07 DE MAYO DE 2020</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="news-single">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <!--Image-->
+                          <div class="view overlay z-depth-1">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(41).jpg" class="img-fluid" alt="Minor sample post image">
+                            <div class="mask rgba-white-slight flex-center">
+                              <p></p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <a class="news-title smaller mb-1" href="">CAPACITACIÓN DE PERSONAL.</a>
+                          <p class="font-small text-uppercase text-muted">01 DE JUNIO DE 2020</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!-- Links -->
+    
+      <!-- Links -->
+      <ul class="navbar-nav nav-flex-icons ml-auto">
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="#"><mdb-icon fab icon="facebook-f" aria-hidden="true"></mdb-icon></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><mdb-icon fab icon="twitter" aria-hidden="true"></mdb-icon></a>
+        </li> -->
+        <li class="nav-item">
+            <a class="nav-link"  (click)="cerrarSesion()"><i class="fas fa-power-off"></i></a>
+        </li>
+      </ul>
+    <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+    
+    </mdb-navbar>
+    <!--/.Navbar-->

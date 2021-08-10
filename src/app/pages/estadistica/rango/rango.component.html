@@ -1,0 +1,80 @@
+<div class="elevation">
+  <div class="row">
+    <div class="col-sm-12 col-md-4">
+      <select class="mdb-select colorful-select dropdown-dark" #incidencia
+        (change)="selectincidencias(incidencia.value) ">
+        <option disabled="disabled">-Seleccione grafica-</option>
+        <option *ngFor="let item of tiposgraficas" [value]="item.tipo">
+          {{item.descripcion | uppercase}}
+        </option>
+      </select>
+    </div>
+    <div class="col-sm-12 col-md-3">
+      <input type="date" class="peque" id="fecha" [(ngModel)]="finicio" />
+    </div>
+    <div class="col-sm-12 col-md-3">
+      <input type="date" class="peque" id="fecha" [(ngModel)]="ffin" />
+    </div>
+    <div class="col-md-2">
+      <button type="button" mdbBtn color="primary" mdbWavesEffect (click)="graficar()"> <i class="fa fa-search"
+          aria-hidden="true"></i> </button>
+    </div>
+  </div>
+</div>
+<div class="elevation">
+  <div style="display: block">
+    <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels" [colors]="chartColors"
+      [options]="chartOptions" [legend]="true" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+    </canvas>
+  </div>
+</div>
+
+<div class="elevation">
+  <div class="row justify-content-center"  id="imprimirreporte">
+    <p></p>
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <table class="table table-hover table-responsive-md table-fixed" id="excel-table">
+            <thead>
+              <tr class="table-dark">
+                <th colspan="6" class="text-center">
+                  REPORTE DE INCIDENCIAS DEL {{finicio}} AL {{ffin}}
+                </th>
+               </tr>
+              <tr class="table-dark">
+                <th>Nº</th>
+                <th>INCIDENCIA</th>
+                <th>SECTOR 1</th>
+                <th>SECTOR 2</th>
+                <th>SECTOR 3</th>
+                <th>TOTAL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listar; let i = index">
+                <th>{{i+1}}</th>
+                <td class="incidencia">{{item.incidencia}}</td>
+                <td>{{item.sector1}}</td>
+                <td>{{item.sector2}}</td>
+                <td>{{item.sector3}}</td>
+                <td>{{item.sector3 + item.sector2 + item.sector1}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-5">
+    <div class="col-sm-12 col-md-4">       
+        <button type="button" mdbBtn  class="btn btn-block mb-2 mt-1" color="danger" routerLink='/AAC/Incidencia/Bienvenido'><i class="fas fa-car"></i> SALIR</button>
+     </div>
+    <div class="col-sm-12 col-md-4">
+        <button type="button" mdbBtn class="btn btn-info btn-block mb-2 mt-1" (click)="createPDF()"><i class="fas fa-download"></i> DESCARGAR PDF</button>
+    </div>
+    <div class="col-sm-12 col-md-4">
+        <button type="button" mdbBtn mdbBtn color="success" class="btn btn-block mb-2 mt-1" (click)="exportexcel()"><i class="fas fa-file-excel"></i> DESCARGAR EXCEL</button>
+    </div>    
+</div>
+</div>

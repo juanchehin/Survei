@@ -1,0 +1,70 @@
+<div class="search-box">
+  <div class="search-center">
+    <input type="text" [(ngModel)]="term" name="term" placeholder="Search...">
+    <div class="search"></div>
+  </div>
+</div>
+<div class="container">
+
+  <div class="card mt-5  elevation-16dp">
+    <ul id="todo-list" class="todo-list">
+      <li>
+        <div class="view">
+          <label class="cabeza">
+            <!-- <span class="izqui">N°</span>             -->
+            <span class="izqui">INCIDENCIA</span>
+            <span class="asunto"></span>
+          </label>
+          <div>
+          </div>
+        </div>
+      </li>
+      <li
+        *ngFor="let item of ListarIndicencias |filter:term | paginate: { itemsPerPage: 20, currentPage: p } ; let i = index">
+        <div class="view">
+          <label class="lista2"> 
+            <!-- <span class="asunto"> {{ i+1 }}</span>             -->
+            <span class="asunto"> {{ item.descripcion | uppercase}}</span>
+            <button class="destruir destroy" (click)="editarInicidencia(item, basicModal12)">
+              <i class="fa fa-file" ></i>
+            </button>
+            <button class="destruir destroy" (click)="eliminarIncidencia(item)">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </label>
+          <div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+
+  <button (click)="basicModal12.show()" data-target="#exampleModalScrollable" mdbWavesEffect id="add-contact-button"
+    type="button" class="btn btn-info btn-circle btn-xl"><i style="color:white; font-size: 20px;"
+      class="fas fa-external-link-alt"></i>
+  </button>
+  <div mdbModal #basicModal12="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+    aria-labelledby="myBasicModalLabel" aria-hidden="true" [config]="{ignoreBackdropClick: true}">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal12.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title w-100" id="myModalLabel">{{titulo}}</h4>
+        </div>
+        <div class="modal-body">
+          <div class="md-form">
+            <input mdbInput [(ngModel)]="newIncidencia.descripcion" type="text" id="nuevaincide" class="form-control">
+            <label for="nuevaincide"><i class="fas fa-user"></i> INCIDENCIA</label>
+          </div>
+        </div>
+        <div class="model-footer">
+          <button type="button" mdbBtn color="red" mdbWavesEffect (click)="basicModal12.hide()">CANCELAR</button>
+          <button type="button" mdbBtn color="primary" mdbWavesEffect (click)="guardarAndEditar(basicModal12)">ACEPTAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

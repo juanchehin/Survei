@@ -1,0 +1,23 @@
+div.card {
+    background: url('../../../../assets/img/forest5.jpg');
+    height: 900px;
+    width: 100%;
+}
+input[type=text] , input[type=password] , label{
+    color: white;
+    font-weight: 900;
+    padding-bottom: 0;
+  }
+  footer[_ngcontent-wlj-c0] {
+    color: white;
+}
+@media screen and (max-width:840px) {
+  div.card {   
+    // height: 100%;
+    width: 100%;
+}
+}
+label {
+  font-size: 1rem!important;
+  font-weight: 100;
+}

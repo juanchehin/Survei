@@ -1,0 +1,156 @@
+<!-- Nav tabs -->
+<mdb-tabset #staticTabs [buttonClass]="'md-tabs tabs-4  special-color-dark margin'" [contentClass]="''">
+  <!--Panel 1-->
+  <mdb-tab heading="PERSONA">
+    <div class="row">
+      <div class="col-12">
+        <br>
+
+        <div class="container">
+          <div class="row justify-content-center elevation">
+
+
+            <h4 class="text-center">DATOS PERSONALES</h4>
+            <form [formGroup]="validatingForm" (ngSubmit)="crearInscripcion(validatingForm.value)">
+              <div class="row">
+                <div class="col-sm-12 col-md-6">
+                  <div class="md-form">
+                    <input mdbInput mdbValidate type="text" id="form1" class="form-control uppercase"
+                      formControlName="apellido" />
+                    <label for="form1">Apellidos</label>
+                    <mdb-error *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">Campo requerido
+                    </mdb-error>
+                  </div>
+                  <div class="md-form">
+                    <input mdbInput mdbValidate type="text" id="form4" class="form-control" formControlName="dni" />
+                    <label for="form4">DNI</label>
+                    <mdb-error
+                      *ngIf="validatingForm.controls['dni'].errors?.minlength || validatingForm.controls['dni'].errors?.maxlength">
+                      DNI no valido</mdb-error>
+                  </div>
+
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <div class="md-form">
+                    <input mdbInput mdbValidate type="text" id="form3" class="form-control" formControlName="nombre" />
+                    <label for="form3">Nombre</label>
+                    <mdb-error *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">Campo requerido</mdb-error>
+                  </div>
+                  <mdb-select [options]="cargos" formControlName="cargo" placeholder="Seleccione cargo"></mdb-select>
+                  <!-- <label>Example label</label> -->
+                </div>
+                <!-- <div class="col-12">
+            
+          </div> -->
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <button type="submit" mdbBtn color="primary" mdbWavesEffect
+                    [disabled]="!validatingForm.valid">GUARDAR</button>
+                </div>
+                <div class="col-9">
+                  <p>
+                    *Este boton se desbloqueará cuando todos los campos estén llenados correctamente
+                  </p>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </mdb-tab>
+  <!--Panel 2-->
+  <mdb-tab heading="USUARIO">
+    <div class="row">
+      <div class="col-12">
+
+        <div class="container">
+          <div class="elevation">
+            
+                <ul id="todo-list" class="todo-list">
+                  <li>
+                    <div class="view">
+                      <label class="cabeza">                        
+                        <span class="asunto">APELLIDOS Y NOMBRES</span>
+                        <span class="asunto">CARGO</span>
+                      </label>
+                      <div>
+                        <!-- <span>BOTON</span> -->
+                      </div>
+                    </div>
+                  </li>
+                  <li *ngFor="let item of Personas |filter:term | paginate: { itemsPerPage: 10, currentPage: pagina2 }">
+                    <div class="view">
+                      <label class="sistema">
+                        <span class="apellido"> {{ item.apellido }}, {{item.nombre}}</span>
+                        <span class="cargo"> {{ item.cargo }}</span>
+                        <button class="destruir destroy" (click)="iniciarUsuario(basicmodel17, item)">
+                          <i class="fa fa-align-center" aria-hidden="true"></i>
+                        </button>
+                      </label>
+                      <div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>          
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </mdb-tab>
+
+</mdb-tabset>
+<div mdbModal #basicmodel17="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+  aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" (click)="basicmodel17.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h6 class="modal-title w-10 text-center" id="myModalLabel">CREAR CUENTA</h6>
+      </div>
+      <div class="modal-body">
+
+
+
+        <form [formGroup]="usuarioForm" (ngSubmit)="crearUsuario(usuarioForm.value, basicmodel17)">
+          <div class="row">
+            <div class="col-12">
+              <div class="md-form">
+                <input mdbInput mdbValidate type="text" id="form11" class="form-control uppercase"
+                  formControlName="username" />
+                <label for="form11">username</label>
+                <mdb-error *ngIf="username.invalid && (username.dirty || username.touched)">Campo requerido
+                </mdb-error>
+              </div>
+              <div class="md-form">
+                <input mdbInput mdbValidate type="password" id="form12" class="form-control" formControlName="password" />
+                <label for="form12">contraseña</label>
+                <mdb-error *ngIf="password.invalid && (password.dirty || password.touched)">Campo requerido
+                </mdb-error>
+              </div>
+              <mdb-select [options]="roles" formControlName="idrole" placeholder="Seleccione rol"></mdb-select>
+            </div>
+            
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <button type="submit" mdbBtn color="primary" mdbWavesEffect
+                [disabled]="!usuarioForm.valid">CREAR USUARIO</button>
+            </div>            
+          </div>
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
+          (click)="basicmodel17.hide()" mdbWavesEffect>Cancelar</button>
+        <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="crearUsuario()" mdbWavesEffect>Guardar</button>
+      </div> -->
+    </div>
+  </div>
+</div>

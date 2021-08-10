@@ -1,0 +1,48 @@
+.cabezera {
+    // img {
+    //     width: 95%;
+    //     height: 70%;
+    // }
+    
+
+        background-image: url("../../../../assets/img/pat1.jpg")!important;
+        height: 150px;
+    // width: 10%;
+
+}
+
+.raya {
+    // text-decoration: underline;
+    font-size: 1.2vw;
+}
+
+.fuerte {
+    font-weight: 700;
+}
+
+
+.izquierda {
+    margin-left: 8vw;
+}
+
+
+.centro {    
+    font-size: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: 200px;
+    text-align: center;
+    grid-template-areas: 
+      "a  b  c"
+      "d  e  f";
+      
+}
+.firma {
+    grid-area: b;
+    // font-size: 1vw;
+    border-bottom: 2px solid black;
+}
+.nombrs {
+    grid-area: e;
+}

@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+
+
+        <div class="pageA4 elevation " id="imprimirpfg">
+            <div class="cabezera">
+                <div>
+                    
+                </div>
+                <!-- <img [src]="imagen" alt=""> -->
+            </div>
+            <div class="cuerpo">
+                <p> <strong class="fuerte">PARTE N° </strong> <strong class="raya">{{parte.nroparte}}</strong>  - <strong class="fuerte">MDAACD-AYACUCHO</strong></p>
+                <p> <strong class="fuerte">SEÑOR: </strong> <strong class="raya">{{parte.receptor}}</strong>  </p>
+                <p> <strong class="fuerte">REFERENCIA: </strong> <strong class="raya">{{parte.referencia}}</strong>  </p>
+                <p> <strong class="fuerte">SERVICIO/TURNO: </strong> <strong class="raya">{{parte.turno}}</strong>  </p>
+                <p> <strong class="fuerte">SECTOR DE INCIDENCIA: </strong> <strong class="raya">{{parte.sector}}</strong>  </p>
+               <p class="cuerpo">
+                   {{parte.contenido}}
+                </p>
+                <p class="fuerte">Lo que se da cuenta para fines de ley</p>
+            </div>
+            <div class="pie">
+                <p class="fuerte izquierda">
+                  <!-- <div class="fuerte izquierda">
+                    <label class="fuerte" for="fecha">Andres Avelino Cáceres Dorregaray:</label>
+                    
+                </div> -->
+                    Andres Avelino Cáceres Dorregaray {{parte.fregistro | date:'dd': '+0530'}} de {{parte.fregistro |date:'MM': '+0530'| mes}} del {{parte.fregistro |date:'yyyy'}}
+                </p>
+            </div>
+            <div class="centro">
+                <p class="firma"></p>                
+                <p class="nombrs">{{persona.nombre}} {{persona.apellido}} <br>DNI: {{persona.dni}}  <br>Cargo: {{persona.cargo}} </p>
+                
+            </div>
+
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-6 col-md-3">
+            <!-- b4-b -->
+            <button type="button" mdbBtn  class="btn btn-block mb-5 mt-1" color="danger" routerLink='/AAC/Incidencia/Bienvenido'><i class="fas fa-car"></i> SALIR</button>
+         </div>
+        <div class="col-sm-6 col-md-3">
+            <button type="button" class="btn btn-info btn-block" (click)="createPDF()"><i class="fas fa-save"></i> DESCARGAR</button>
+        </div>
+        <!-- <div class="col-4">
+            <button type="button" mdbBtn color="danger" mdbWavesEffect (click)="salirPagina()">Salir</button>
+        </div> -->
+    </div>
+</div>

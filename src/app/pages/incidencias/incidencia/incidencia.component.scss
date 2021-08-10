@@ -1,0 +1,92 @@
+.cabezara {
+  img {
+    width: 95%;
+    height: 70%;
+  }
+}
+
+.raya {
+  text-decoration: underline;
+}
+
+.fuerte {
+  font-weight: 700;
+}
+
+.hed {
+  input {
+    margin-left: 5px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    // width: 450px;
+    border-bottom: 2px solid black;
+  }
+  .linea0 {
+    width: 150px;
+  }
+  .linea1 {
+    width: 595px;
+  }
+
+  .linea2 {
+    width: 575px;
+  }
+
+  .linea3 {
+    width: 540px;
+  }
+
+  .linea4 {
+    width: 500px;
+  }
+
+  .linea5 {
+    width: 450px;
+  }
+}
+
+.time {
+  input {
+    margin-left: 5px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 2px solid black;
+  }
+}
+
+.izquierda {
+  margin-left: 8vw;
+}
+
+.centro {
+
+  margin-top: 8vw;
+  margin-left: 14vw;
+  // text-align: center;
+}
+
+.firma {
+  border-bottom: 2px solid black;
+  width: 350px;
+  font-weight: 700;
+}
+
+table.table td,
+table.table th {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  font-size: 1.2rem;
+}
+.listas {
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.listas:hover {
+        color: blue;
+        cursor: pointer;
+        font-weight: 700;
+    
+}

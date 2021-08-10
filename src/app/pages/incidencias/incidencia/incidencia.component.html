@@ -1,0 +1,158 @@
+<div class="container-fluid">
+  
+  <div class="row justify-content-center">
+    <div class="pageA4 elevation " id="imprimirpfg">
+      <div class="cabezara">
+        <img [src]="imagen" alt="">
+      </div>
+      <div class="cuerpo">
+        <div class="row">
+
+          <div style="display:flex;" class="hed col-6">
+            <label class="fuerte" for="partenumero">PARTE N°:</label>
+            <input class="linea0" id="partenumero" [(ngModel)]="parte.nroparte" />
+          </div>
+          <p class="col-6"> - <strong class="fuerte">MDAACD-AYACUCHO</strong></p>
+        </div>
+        <div style="display:flex;" class="hed">
+          <label class="fuerte" for="Student">SEÑOR:</label>
+          <input class="linea1" id="Student" [(ngModel)]="parte.receptor" />
+        </div>
+        <div style="display:flex;" class="hed">
+          <label class="fuerte" for="Asunto">ASUNTO:</label>
+          <input class="linea2" id="Asunto" (keyup)="buscar($event,basicModal1)" [(ngModel)]="asuntoDesc" />
+        </div>
+        <div style="display:flex;" class="hed">
+          <label class="fuerte" for="Referencia">REFERENCIA:</label>
+          <input class="linea3" id="Referencia" [(ngModel)]="parte.referencia" />
+        </div>
+        <div style="display:flex;" class="hed">
+          <label class="fuerte" for="turno">SERVICIO/TURNO:</label>
+          <input class="linea4" id="turno" [(ngModel)]="parte.turno" />
+        </div>
+        <div style="display:flex;">
+          <!-- <label class="fuerte" for="sector">SECTOR DE INCIDENCIA:</label> -->
+
+          <mdb-select [options]="sectores" [(ngModel)]="parte.sector" placeholder="SECTOR DE INCIDENCIA"></mdb-select>
+
+
+          <!-- <input class="linea5" id="sector" [(ngModel)]="parte.sector" /> -->
+        </div>
+        <div style="display:flex;" *ngIf="verhoras">
+          <div class="time">
+            <label class="fuerte" for="hora">Siendo las </label>
+            <input class="peque" id="hora" [(ngModel)]="hora" />
+          </div>
+          <div class="time">
+            <label class="fuerte" for="fecha">Horas del día:</label>
+            <input type="date" class="peque" id="fecha" [(ngModel)]="fecha" />
+          </div>
+        </div>
+        <textarea name="grande" id="grangran" cols="85" rows="7" [(ngModel)]="contenido" (click)="verFecha = true;"></textarea>
+        <p class="fuerte">Lo que se da cuenta para afines de ley</p>
+
+
+      </div>
+      <div class="pie" *ngIf="verFecha">
+        <p class="fuerte izquierda">      
+        Andres Avelino Cáceres Dorregaray {{fecha | date:'dd'}} de {{fecha|date:'MM'| mes}} del {{fecha|date:'yyyy'}}
+        </p>
+      </div>
+      <div class="centro">
+        <p class="firma"></p>
+        <p class="fuerte">{{persona.nombre}} {{persona.apellido}} <br>DNI: {{persona.dni}} <br>Cargo: {{persona.cargo}} </p>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-6 col-md-3">
+      <!-- b4-b -->
+      <button type="button" mdbBtn  class="btn btn-block mb-5 mt-1" color="danger" routerLink='/AAC/Incidencia/Bienvenido'><i class="fas fa-car"></i> SALIR</button>
+   </div>
+    <div class="col-sm-6 col-md-3">
+      <button type="button" class="btn btn-block btn-info mb-5 mt-1" (click)="guardarParte(basicModal)"><i class="fas fa-save"></i>
+        {{save}}</button>
+    </div>
+  </div>
+</div>
+ 
+<div mdbModal #basicModal1="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true" [config]="{ignoreBackdropClick: true}">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal1.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">LISTA</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group" *ngFor="let item of incidencias">
+          <li class="list-group-item listas" (click)="chenckboxIncidencias(item,basicModal1)">{{item.descripcion}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-fluid" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100 text-center" id="myModalLabel">DATOS LLENADOS</h4>
+      </div>
+      <div class="modal-body">
+        <div class=" row justify-content-center">
+          <div class="col-12">
+            <table mdbTable responsive="true" bordered="true" class="peque">
+              <tbody>
+                <tr>
+                  <th>Receptor</th>
+                  <td>{{parte.receptor}}</td>
+                </tr>
+                <tr>
+                  <th>Asunto</th>
+                  <td>{{asuntoDesc}}</td>
+                </tr>
+                <tr>
+                  <th>Referencia</th>
+                  <td>{{parte.referencia}}</td>
+                </tr>
+                <tr>
+                  <th>Turno</th>
+                  <td>{{parte.turno}}</td>
+                </tr>
+                <tr>
+                  <th>Sector</th>
+                  <td>{{parte.sector}}</td>
+                </tr>
+                <tr>
+                  <th>Contenido</th>
+                  <td>{{parte.contenido}}</td>
+                </tr>
+                <tr>
+                  <th>FECHA</th>
+                  <td>{{parte.fregistro}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+
+          <div>
+            <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect
+              (click)="SabeOrUpdateParte(basicModal)">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

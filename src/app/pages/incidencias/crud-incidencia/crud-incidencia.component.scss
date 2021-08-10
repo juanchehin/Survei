@@ -1,0 +1,14 @@
+.cabeza {
+    text-align: center;
+    font-weight: 700;
+    color: blue;
+}
+.todo-list li label {	
+	display: grid;
+    grid-template-columns: 90% 5% 5%;
+}
+.lista2:hover {
+    color: red;
+    font-weight: 500;
+    cursor: pointer;
+}

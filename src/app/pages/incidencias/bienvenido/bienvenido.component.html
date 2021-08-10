@@ -1,0 +1,198 @@
+<div class="row">
+  <div class="col-sm-12 col-md-3 elevation">
+    <div class="row justify-content-center mt-2">
+
+      <img [src]="imagen" alt="">
+      <button type="button" mdbBtn color="primary" mdbWavesEffect class="btn btn-block" routerLink="/AAC/Incidencia/Incidencia">NUEVO</button>
+      <button type="button" mdbBtn color="primary" mdbWavesEffect class="btn btn-block mt-5" (click)="basicModal.show()">BUSCAR</button>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-8">
+    <div class="row justify-content-center mt-2">
+        <div class="col-12">
+
+            <h3 class="text-center">BIENVENIDO AL SISTEMA DE INCIDENCIA</h3> <br>
+        </div>
+      <!-- <div class="col-6">
+        <img src="../../../../assets/img/logo.jpg" alt="">
+      </div> -->
+      <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+                <span aria-hidden="true">×</span>
+              </button>
+              <h4 class="modal-title w-100" id="myModalLabel">BUSCAR INCIDENCIA</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-9">
+                  <div class="md-form">
+                    <input mdbInput type="text" id="form1" class="form-control" [(ngModel)]="nParte">
+                    <label for="form1" class="">N° INCIDENCIA</label>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <button type="button" mdbBtn color="primary" mdbWavesEffect (click)="buscarParte()"><i class="fa fa-search-plus" aria-hidden="true"></i></button>
+                </div>
+                <div class="col-12" *ngIf="verInfo">
+                  <div class="alert alert-primary" role="alert">
+                    <p>FECHA: <strong>{{bParte.fregistro}}</strong></p>
+                    <p>SECTOR: <strong>{{bParte.sector}}</strong></p>
+                    <p>INCIDENCIA: <strong>{{bParte.incidencia.descripcion}}</strong></p>                    
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>CANCELAR</button>
+              <button type="button" [disabled]="!verInfo" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect (click)="construir()">EDITAR</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="grid">
+            <ul id="hexGrid">
+              <li class="hex">
+                <div class="hexIn">
+                  <a class="hexLink">
+                    <div class='img' style='background-image:url(./assets/img/img1.jpg);'></div>
+                    <!-- <h1 id="demo1">VIGILANCIA</h1> -->
+                    <p id="demo2">VIGILANCIA</p>
+                  </a>
+                </div>
+              </li>
+                
+              <li class="hex">
+                <div class="hexIn">
+                  <a class="hexLink">
+                        <div class='img' style='background-image: url(./assets/img/img2.jpg);'></div>
+                    <!-- <h1 id="demo1">This is a title</h1> -->
+                    <p id="demo2">VIGILANCIA</p>
+                  </a>
+                </div>
+              </li>
+              <li class="hex">
+                <div class="hexIn">
+                  <a class="hexLink">
+                    <div class='img' style='background-image: url(./assets/img/img3.jpg);'></div>
+                    <!-- <h1 id="demo1">This is a title</h1> -->
+                    <p id="demo2">VIGILANCIA</p>
+                  </a>
+                </div>
+              </li>
+              <li class="hex">
+                <div class="hexIn">
+                  <a class="hexLink">
+                    <div class='img' style='background-image: url(./assets/img/img1.jpg);'></div>
+                    <!-- <h1 id="demo1">This is a title</h1> -->
+                    <p id="demo2">VIGILANCIA</p>
+                  </a>
+                </div>
+              </li>
+              <li class="hex">
+                <div class="hexIn">
+                  <a class="hexLink">
+                    <div class='img' style='background-image: url(./assets/img/img4.jpg);'></div>
+                    <!-- <h1 id="demo1">This is a title</h1> -->
+                    <p id="demo2">VIGILANCIA</p>
+                  </a>
+                </div>
+              </li>
+              <li class="hex">
+                <div class="hexIn">
+                  <a class="hexLink">
+                 <div class='img' style='background-image: url(./assets/img/img4.jpg);'></div>
+                    <!-- <h1 id="demo1">This is a title</h1> -->
+                    <p id="demo2">VIGILANCIA</p>
+                  </a>
+                </div>
+              </li>
+              <li class="hex">
+                <div class="hexIn">
+                  <a class="hexLink">
+                    <div class='img' style='background-image: url(./assets/img/img1.jpg);'></div>
+                    <!-- <h1 id="demo1">This is a title</h1> -->
+                    <p id="demo2">VIGILANCIA</p>
+                  </a>
+                </div>
+              </li>
+              <li class="hex">
+                <div class="hexIn">
+                  <a class="hexLink">
+                    <div class='img' style='background-image: url(./assets/img/img4.jpg);'></div>
+                    <!-- <h1 id="demo1">This is a title</h1> -->
+                    <p id="demo2">VIGILANCIA</p>
+                  </a>
+                </div>
+              </li>
+              <li class="hex">
+                <div class="hexIn">
+                  <a class="hexLink">
+                    <div class='img' style='background-image: url(./assets/img/img3.jpg);'></div>
+                    <!-- <h1 id="demo1">This is a title</h1> -->
+                    <p id="demo2">VIGILANCIA</p>
+                  </a>
+                </div>
+              </li>
+              
+             <li class="hex">
+                <div class="hexIn">
+                  <a class="hexLink">
+                    <div class='img' style='background-image:url(./assets/img/img2.jpg);'></div>
+                    <!-- <h1 id="demo1">This is a title</h1> -->
+                    <p id="demo2">VIGILANCIA</p>
+                  </a>
+                </div>
+              </li>
+                <li class="hex">
+                <div class="hexIn">
+                  <a class="hexLink">
+                    <div class='img' style='background-image: url(./assets/img/img3.jpg);'></div>
+                    <!-- <h1 id="demo1">This is a title</h1> -->
+                    <p id="demo2">VIGILANCIA</p>
+                  </a>
+                </div>
+              </li>
+                  <li class="hex">
+                <div class="hexIn">
+                  <a class="hexLink">
+                        <div class='img' style='background-image: url(./assets/img/img1.jpg);'></div>
+                    <!-- <h1 id="demo1">This is a title</h1> -->
+                    <p id="demo2">VIGILANCIA</p>
+                  </a>
+                </div>
+              </li>
+                <li class="hex">
+                <div class="hexIn">
+                  <a class="hexLink">
+                    <div class='img' style='background-image: url(./assets/img/img2.jpg);'></div>
+                    <!-- <h1 id="demo1">This is a title</h1> -->
+                    <p id="demo2">VIGILANCIA</p>
+                  </a>
+                </div>
+              </li>
+                <li class="hex">
+                <div class="hexIn">
+                  <a class="hexLink">
+                    <div class='img' style='background-image: url(./assets/img/img1.jpg);'></div>
+                    <!-- <h1 id="demo1">This is a title</h1> -->
+                    <p id="demo2">VIGILANCIA</p>
+                  </a>
+                </div>
+              </li>
+            </ul>
+              </div>
+         
+        
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+

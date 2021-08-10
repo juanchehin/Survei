@@ -1,0 +1,375 @@
+/* You can add global styles to this file, and also import other style files */
+
+// sombras a los lados
+.elevation {
+    margin: 20px;
+    padding: 30px;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
+    position: relative;
+    background: #fff;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+// fin de sombras a los lados
+div.pageA4 {
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2 vw;
+    width: 210mm;
+    height: 245mm;
+}
+
+// checboxk
+// @import url(https://fonts.googleapis.com/css?family=Roboto);
+$md-checkbox-margin: 10px 0;
+$md-checkbox-checked-color: rgb(20, 224, 20);
+$md-checkbox-border-color: rgba(0, 0, 0, 0.54);
+$md-checkbox-border-color-disabled: rgba(0, 0, 0, 0.26);
+$md-checkbox-checked-color-disabled: rgba(0, 0, 0, 0.26);
+$md-checkbox-size: 20px;
+$md-checkbox-padding: 4px;
+$md-checkmark-width: 2px;
+$md-checkmark-color: #fff;
+.md-checkbox {
+    position: relative;
+    margin: $md-checkbox-margin;
+    text-align: left;
+    &.md-checkbox-inline {
+        display: inline-block;
+    }
+    label {
+        cursor: pointer;
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        &:before {
+            // box
+            width: $md-checkbox-size;
+            height: $md-checkbox-size;
+            background: #fff;
+            border: 2px solid $md-checkbox-border-color;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background .3s;
+        }
+        // &:after {
+        //   // checkmark
+        // }    
+    }
+    input[type="checkbox"] {
+        outline: 0;
+        margin-right: $md-checkbox-size - 10px;
+        visibility: hidden;
+        &:checked {
+            +label:before {
+                background: $md-checkbox-checked-color;
+                border: none;
+            }
+            +label:after {
+                $md-checkmark-size: $md-checkbox-size - 2*$md-checkbox-padding;
+                transform: rotate(-45deg);
+                top: ($md-checkbox-size / 2) - ($md-checkmark-size / 4) - $md-checkbox-size/10;
+                left: $md-checkbox-padding;
+                width: $md-checkmark-size;
+                height: $md-checkmark-size / 2;
+                border: $md-checkmark-width solid $md-checkmark-color;
+                border-top-style: none;
+                border-right-style: none;
+            }
+        }
+        &:disabled {
+            +label:before {
+                border-color: $md-checkbox-border-color-disabled;
+            }
+            &:checked {
+                +label:before {
+                    background: $md-checkbox-checked-color-disabled;
+                }
+            }
+        }
+    }
+}
+
+// inicio select
+select {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #d1c9cf;
+    border-radius: 0;
+    outline: 0;
+    height: 2.1rem;
+    width: 95%;
+    font-size: 1rem;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    padding-left: 2.2rem;
+  }
+  
+  option.mostrar {
+    background-color: rgb(214, 207, 212);
+    //  color: rgb(51, 19, 233);
+  }
+  
+  select:active {
+    border-bottom: transparent;
+    ;
+    -webkit-box-shadow: transparent;
+    ;
+    box-shadow: transparent;
+  }
+  // fin de select
+
+@media screen and (max-width:640px) {
+    select {
+        
+        font-size: 11px;    
+        width: 65%;
+      }
+      option.mostrar {
+        width: 55%;
+        background-color: rgb(214, 207, 212);
+        //  color: rgb(51, 19, 233);
+      }
+}
+
+// botton destroyer
+
+button.destruir {
+	margin: 0;
+	border: 0;
+	background: none;
+	vertical-align: baseline;
+	font-family: inherit;
+	font-weight: inherit;
+	color: inherit;
+	-webkit-appearance: none;
+	appearance: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+:focus {
+	outline: 0;
+}
+
+.hidden {
+	display: none;
+}
+
+.todo-list {
+	margin: 1vh;
+	padding: 0.5vh;
+	list-style: none;
+	// color: blue!important;
+}
+
+.todo-list li {
+	position: relative;
+	font-size: 18px;
+	border-bottom: 1px solid #ededed;
+}
+
+.todo-list li:last-child {
+	border-bottom: none;
+}
+
+.todo-list li label {
+	// word-break: break-all;
+	padding: 10px 5px 5px 10px;
+	// display: block;
+	line-height: 1.2;
+	transition: color 0.4s;
+}
+
+.todo-list li .destroy {
+	display: none;
+	// position: absolute;
+	right: 10px;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	margin: auto 0;
+	font-size: 20px;
+	transition: color 0.2s ease-out;
+}
+
+.todo-list li .destroy:hover {
+	color: #af5b5e;
+}
+
+.todo-list li:hover .destroy {
+	display: block;
+}
+
+// inicio del buscador
+.search-box {
+    position: fixed;
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 99;
+    .search-center {
+        position: relative;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 300px;
+        height: 100px;
+        .search {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 80px;
+            height: 80px;
+            // este es el circulo que se muestra al inicio
+            background: #2BBBAD;
+            border-radius: 50%;
+            transition: all 1s;
+            z-index: 4;
+            box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+            // box-shadow: 0 0 25px 0 crimson;
+            &:hover {
+                cursor: pointer;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                margin: auto;
+                top: 22px;
+                right: 0;
+                bottom: 0;
+                left: 22px;
+                width: 12px;
+                height: 2px;
+                background: white;
+                transform: rotate(45deg);
+                transition: all .5s;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                margin: auto;
+                top: -5px;
+                right: 0;
+                bottom: 0;
+                left: -5px;
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                border: 2px solid white;
+                transition: all .5s;
+            }
+        }
+        input {
+            font-family: 'Inconsolata', monospace;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 50px;
+            height: 50px;
+            outline: none;
+            border: none;
+            // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            // esta son las sombras al abrirse
+            background: #33b5e5;
+            color: white;
+            text-shadow: 0 0 10px #33b5e5;
+            padding: 0 80px 0 20px;
+            border-radius: 30px;
+            box-shadow: 0 0 25px 0 #33b5e5, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+            // box-shadow: inset 0 0 25px 0 rgba(0, 0, 0, 0.5);
+            transition: all 1s;
+            opacity: 0;
+            z-index: 5;
+            font-weight: bolder;
+            letter-spacing: 0.1em;
+            &:hover {
+                cursor: pointer;
+            }
+            &:focus {
+                width: 300px;
+                opacity: 1;
+                cursor: text;
+            }
+            &:focus~.search {
+                right: 0;
+                // luego de hacer lick se pinta este color el circulo
+                background: #00695c;
+                z-index: 6;
+                &::before {
+                    top: 0;
+                    left: 0;
+                    width: 25px;
+                }
+                &::after {
+                    top: 0;
+                    left: 0;
+                    width: 25px;
+                    height: 2px;
+                    border: none;
+                    background: white;
+                    border-radius: 0%;
+                    transform: rotate(-45deg);
+                }
+            }
+            &::placeholder {
+                color: white;
+                opacity: 0.5;
+                font-weight: bolder;
+            }
+        }
+    }
+}
+
+// fin de buscador
+
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+.btn-circle.btn-lg {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 35px;
+}
+
+#add-contact-button {
+    top: 75%;
+    font-size: 20px;
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    padding: 0;
+    z-index: 99;
+}

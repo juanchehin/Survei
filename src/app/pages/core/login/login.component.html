@@ -1,0 +1,45 @@
+<!-- <div class="row">
+    <div class="col-12"> -->
+        <div class="card">
+            <div class="text-white text-center">
+                <!-- Content -->
+                <div class="text-white text-center mt-5 animated fadeIn">
+                    <h3 class="card-title h3-responsive font-bold mt-5">ANDRES AVELINO CACERES DORREGARAY</h3>
+
+                    <div class="row justify-content-center">
+                        <div class="col-sm-8 col-md-4">                       
+                        
+                            <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+                                <div class="md-form form-sm">
+                                    <input mdbInput mdbValidate type="text" id="form22" class="form-control" name="usuario" formControlName="usuario">
+                                    <label for="form22"><i class="fas fa-user"></i> USUARIO</label>
+                                    <mdb-error *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)">
+                                        Entrada no válida
+                                    </mdb-error>
+                                    <mdb-success *ngIf="usuario.valid && (usuario.dirty || usuario.touched)">
+                                        Entrada válida
+                                    </mdb-success>
+                                </div>
+
+                                <div class="md-form form-sm mt-5">
+                                    <input mdbInput mdbValidate type="password" id="form23" class="form-control" name="password" formControlName="password">
+                                    <label for="form23"><i class="fas fa-unlock-alt"></i> CLAVE</label>
+                                    <mdb-error *ngIf="password.invalid && (password.dirty || password.touched)">
+                                        Entrada no válida
+                                    </mdb-error>
+                                    <mdb-success *ngIf="password.valid && (password.dirty || password.touched)">
+                                        Entrada válida
+                                    </mdb-success>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <button mdbBtn color="info" class="waves-light" mdbWavesEffect type="submit"  [disabled]="!loginForm.valid" (keyup.enter)="onSubmit(loginForm.value)">Acceder</button>
+                                </div>
+                            </form>
+                </div>
+            </div>
+                    <p class="card-text mt-5">V. 1.1.0-beta</p>
+                </div>
+            </div>
+        </div>
+    <!-- </div>
+</div> -->
